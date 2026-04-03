@@ -1,6 +1,10 @@
 # Wild Sayings
 
+> **THIS IS SUPER IMPORTANT.** Possibly the most important advance in useless technology since the internet-connected toaster. Do not scroll past this. Your life may depend on it. (It won't, but a possum in a lab coat said it might, and who are we to argue?)
+
 A Claude Code skill that generates hilarious, over-the-top hyperbolic sayings about any topic you throw at it. 22 humor traditions from around the world, from Southern drawl to Yiddish fatalism to Australian understatement to Swahili rhyming wisdom.
+
+**[See it in action](https://alexu-a.github.io/wild-sayings/)**
 
 ## Install
 
