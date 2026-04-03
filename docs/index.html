@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild Sayings - Absurdist Humor in 22 Voices</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --surface: #16213e;
+      --card: #0f3460;
+      --accent: #e94560;
+      --gold: #f0c040;
+      --text: #eee;
+      --muted: #aab;
+      --green: #53d769;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(233,69,96,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(240,192,64,0.06) 0%, transparent 50%);
+      animation: drift 20s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-2%, 1%); }
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 1.35rem;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .install-box {
+      display: inline-block;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(233,69,96,0.3);
+      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      user-select: all;
+    }
+
+    .install-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .voice-count {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      background: rgba(240,192,64,0.15);
+      border: 1px solid rgba(240,192,64,0.3);
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* Section layout */
+    .showcase {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--gold);
+      margin: 3rem 0 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    /* Prompt cards */
+    .prompt-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .prompt-question {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      padding-left: 0.5rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .saying-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .saying-card:hover {
+      transform: translateX(4px);
+      border-color: rgba(233,69,96,0.25);
+    }
+
+    .voice-tag {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    .voice-tag.southern { background: rgba(233,69,96,0.2); color: #f47a8f; }
+    .voice-tag.midwestern { background: rgba(83,215,105,0.15); color: #7de492; }
+    .voice-tag.western { background: rgba(210,160,60,0.2); color: #d4a840; }
+    .voice-tag.modern { background: rgba(100,180,255,0.15); color: #80b8f0; }
+    .voice-tag.philly { background: rgba(255,130,50,0.2); color: #ff9944; }
+    .voice-tag.austin { background: rgba(200,100,200,0.2); color: #d080d0; }
+    .voice-tag.portland { background: rgba(80,200,160,0.15); color: #60d0a0; }
+    .voice-tag.nyc { background: rgba(255,220,60,0.15); color: #e0c040; }
+    .voice-tag.seattle { background: rgba(100,140,180,0.2); color: #90b0d0; }
+    .voice-tag.nola { background: rgba(180,80,220,0.2); color: #c070e0; }
+    .voice-tag.russian { background: rgba(200,50,50,0.2); color: #e06060; }
+    .voice-tag.yiddish { background: rgba(100,100,220,0.2); color: #9090e0; }
+    .voice-tag.german { background: rgba(220,180,50,0.15); color: #d0b040; }
+    .voice-tag.french { background: rgba(50,80,200,0.2); color: #7090e0; }
+    .voice-tag.italian { background: rgba(60,180,80,0.2); color: #50c060; }
+    .voice-tag.irish { background: rgba(40,180,100,0.2); color: #40c080; }
+    .voice-tag.australian { background: rgba(220,160,40,0.2); color: #e0a830; }
+    .voice-tag.scottish { background: rgba(50,100,200,0.2); color: #6090d0; }
+
+    .saying-text {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    /* Voice grid */
+    .voices-section {
+      margin-top: 4rem;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .voice-column h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(233,69,96,0.2);
+    }
+
+    .voice-column ul {
+      list-style: none;
+    }
+
+    .voice-column li {
+      padding: 0.3rem 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .voice-column li code {
+      font-family: 'Courier New', monospace;
+      background: rgba(255,255,255,0.06);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    /* Usage section */
+    .usage-section {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .usage-section h2 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .usage-example {
+      font-family: 'Courier New', monospace;
+      background: rgba(0,0,0,0.3);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin: 0.6rem 0;
+      font-size: 0.95rem;
+      color: var(--green);
+    }
+
+    .usage-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 2rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    .footer .closing-saying {
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero .tagline { font-size: 1.1rem; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .showcase { padding: 1rem 1rem 3rem; }
+      .prompt-question { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Wild Sayings</h1>
+      <p class="tagline">Absurdist hyperbolic humor meets animal chaos &mdash; in every accent, dialect, and vibe imaginable.</p>
+      <div class="install-box">npx skills add AlexU-A/wild-sayings</div>
+      <p class="install-hint">A Claude Code skill. Install it. Ask it anything. Brace yourself.</p>
+      <div class="voice-count">22 voices &middot; Infinite absurdity</div>
+    </div>
+  </div>
+
+  <div class="showcase">
+
+    <h2 class="section-title">The Showcase</h2>
+    <p class="section-subtitle">We asked seven dangerous questions. Every voice had something to say.</p>
+
+    <!-- IS THIS USEFUL? -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;Is this useful?&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag southern">Southern</div>
+        <p class="saying-text">I once saw a river otter give a keynote presentation at a Rotary Club luncheon in house slippers, and even that accomplished more than this skill on paper.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag midwestern">Midwestern</div>
+        <p class="saying-text">Oh jeez, it's about as useful as a nearsighted hawk refereeing a dodgeball game at a church basement potluck, you betcha &mdash; but everyone keeps showing up anyway.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag russian">Russian</div>
+        <p class="saying-text">In Soviet internet, skill installs you. But truly, usefulness here is like asking a bear to justify his career at the unemployment office during a blizzard &mdash; the question itself is already the problem, and then it got worse.</p>
+      </div>
+    </div>
+
+    <!-- SHOULD I BE OFFENDED? -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;Should I be offended?&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag yiddish">Yiddish</div>
+        <p class="saying-text">Oy vey, you call THAT offended? Such sensitivity! That's like a meshuggeneh parrot kvetching to the rabbi because a pigeon got a better seat at the deli &mdash; sit down, eat something, you'll feel better.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag nyc">NYC</div>
+        <p class="saying-text">Deadass, being offended by this is like a bodega cat filing a grievance with HR because somebody moved its box &mdash; ain't nobody got the paperwork for that and the subway's already late.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag french">French</div>
+        <p class="saying-text">Mon dieu, offense? C'est like watching a flamingo demand an apology from the wind at a sidewalk caf&eacute; &mdash; the cigarette is still lit, the wine is still poured, and nobody at the table cares.</p>
+      </div>
+    </div>
+
+    <!-- WILL THIS MAKE ME RICH? -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;Will this make me rich?&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag austin">Austin</div>
+        <p class="saying-text">Keep it weird, friend &mdash; this thing's got about as much earning potential as a grackle running a breakfast taco stand on South Congress that only accepts good vibes and Venmo from 2019.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag german">German</div>
+        <p class="saying-text">The Finanzamt has reviewed your inquiry with characteristic thoroughness and determined that this skill's profit margin is approximately one dachshund trying to operate a forklift on the Autobahn &mdash; technically in motion, structurally inadvisable, and the paperwork alone will outlive us all.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag italian">Italian</div>
+        <p class="saying-text">Madonna! You want money from THIS? That's like nonna opening a Michelin-star restaurant in the garage, serving only to family, and then wondering why the espresso machine hasn't paid for itself &mdash; mangia, forget the money, the sauce is ready.</p>
+      </div>
+    </div>
+
+    <!-- I HAVE A COMPLAINT -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;I have a complaint&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag philly">Philly</div>
+        <p class="saying-text">Listen, that jawn of a complaint has been filed somewhere between a raccoon riding SEPTA without a token and a pigeon disputing a parking chair on Broad Street &mdash; youse can take a number but the line goes past Wawa and nobody's moving.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag irish">Irish</div>
+        <p class="saying-text">Ah sure look it, yer complaint's been received with all the urgency of a donkey wandering into a GAA match during a rainstorm &mdash; everyone sees it, nobody's doing a thing about it, and to be fair, the donkey's having a grand time.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag seattle">Seattle</div>
+        <p class="saying-text">So, your complaint has been acknowledged, and we really appreciate you sharing that with us &mdash; it's currently being processed by a great blue heron in a fleece vest who's meditating at Pike Place while passive-aggressively not making eye contact with anyone. The mountain is out, though, so that's nice.</p>
+      </div>
+    </div>
+
+    <!-- DOES THIS MAKE ME LOOK FAT? -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;Does this make me look fat?&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag australian">Australian</div>
+        <p class="saying-text">Mate, fair dinkum, that question's got more danger in it than a saltwater croc judging a beauty pageant at a servo in the outback &mdash; she'll be right, but I reckon the croc's not answering either and he's the one with survival instincts.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag scottish">Scottish</div>
+        <p class="saying-text">Och, I'm no' touching that one &mdash; that's pure mental, like asking a wee Highland cow if yer kilt makes ye look wide. The cow disnae care, yer bum's oot the windae for even asking, and the chippy's closing in ten minutes so let's focus on what matters.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag midwestern">Midwestern</div>
+        <p class="saying-text">Ope, well now, I'm not gonna answer that directly, but I will say this &mdash; you look about as good as a Canada goose looks confident, which is to say, absolutely unstoppable and nobody's brave enough to disagree, don'tcha know.</p>
+      </div>
+    </div>
+
+    <!-- PEOPLE ARE... -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;People are...&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag portland">Portland</div>
+        <p class="saying-text">People are like a locally sourced, free-range coyote trying to parallel park a cargo bike in the rain outside Powell's while debating whether the kombucha is ethical &mdash; everyone's got an opinion, nobody's making progress, and somehow there's a banjo involved.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag yiddish">Yiddish</div>
+        <p class="saying-text">People, schmeople &mdash; such a species! That's like a whole synagogue full of opinionated geese all trying to give unsolicited advice to a bagel that didn't ask, and the bagel is also somehow your mother, and she's disappointed.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag nola">New Orleans</div>
+        <p class="saying-text">Where y'at &mdash; people are wilder than a second line parade led by a pelican in a three-piece suit making groceries on Bourbon Street at 4 AM while a crawfish plays trombone on the neutral ground, and yeah you right, nobody bats an eye.</p>
+      </div>
+    </div>
+
+    <!-- WHY GOD WHY? -->
+    <div class="prompt-section">
+      <div class="prompt-question">&ldquo;Why god why?&rdquo;</div>
+
+      <div class="saying-card">
+        <div class="voice-tag southern">Southern</div>
+        <p class="saying-text">Well honey, last time somebody asked the Almighty a question like that, a possum in a choir robe was fixin' to baptize a catfish in a Waffle House parking lot during a thunderstorm, and the Lord just shrugged and refilled His sweet tea.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag russian">Russian</div>
+        <p class="saying-text">You ask why? In Russia, we do not ask why. We simply watch as the bear puts on a necktie, files for a mortgage in a communal apartment, and accepts that the queue for answers stretches past the horizon and the office closed in 1987. Nichevo.</p>
+      </div>
+
+      <div class="saying-card">
+        <div class="voice-tag italian">Italian</div>
+        <p class="saying-text">Madonna mia, why? WHY? That's like asking nonna why she made enough pasta to feed a village when only three people are coming &mdash; she throws her hands up, the espresso boils over, the cat knocks a saint off the windowsill, and somehow this is YOUR fault for asking.</p>
+      </div>
+    </div>
+
+    <!-- VOICES GRID -->
+    <div class="voices-section">
+      <h2 class="section-title">All 22 Voices</h2>
+      <p class="section-subtitle">Use <code style="background:rgba(255,255,255,0.08);padding:0.1em 0.4em;border-radius:3px;">--voice &lt;name&gt;</code> to lock to any voice</p>
+
+      <div class="voice-grid">
+        <div class="voice-column">
+          <h3>US Regional</h3>
+          <ul>
+            <li><code>southern</code> &mdash; Y'all, sweet tea, front porch</li>
+            <li><code>midwestern</code> &mdash; Ope, you betcha, hotdish</li>
+            <li><code>western</code> &mdash; Partner, reckon, dusty rodeo</li>
+            <li><code>modern</code> &mdash; Tech, urban, contemporary</li>
+          </ul>
+        </div>
+        <div class="voice-column">
+          <h3>US City</h3>
+          <ul>
+            <li><code>philly</code> &mdash; Jawn, wooder, Wawa</li>
+            <li><code>austin</code> &mdash; Keep it weird, tacos</li>
+            <li><code>portland</code> &mdash; Bird on it, kombucha</li>
+            <li><code>nyc</code> &mdash; Deadass, bodega, stoop</li>
+            <li><code>seattle</code> &mdash; Fleece vests, the mountain</li>
+            <li><code>nola</code> &mdash; Where y'at, second line</li>
+          </ul>
+        </div>
+        <div class="voice-column">
+          <h3>International</h3>
+          <ul>
+            <li><code>russian</code> &mdash; And then it got worse</li>
+            <li><code>yiddish</code> &mdash; Oy vey, chutzpah</li>
+            <li><code>german</code> &mdash; Ordnung, Autobahn</li>
+            <li><code>french</code> &mdash; Mon dieu, c'est la vie</li>
+            <li><code>italian</code> &mdash; Madonna, nonna, mangia</li>
+            <li><code>irish</code> &mdash; Grand, fierce, the craic</li>
+            <li><code>australian</code> &mdash; Fair dinkum, mate</li>
+            <li><code>scottish</code> &mdash; Aye, wee, pure mental</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- USAGE -->
+    <div class="usage-section">
+      <h2>Quick Start</h2>
+
+      <p class="usage-desc">Basic &mdash; 3 sayings, rotating voices:</p>
+      <div class="usage-example">/wild-sayings crazy</div>
+
+      <p class="usage-desc">Lock to a voice:</p>
+      <div class="usage-example">/wild-sayings stubborn --voice scottish</div>
+
+      <p class="usage-desc">Bumper-sticker mode:</p>
+      <div class="usage-example">/wild-sayings cheap --short</div>
+
+      <p class="usage-desc">Combine them:</p>
+      <div class="usage-example">/wild-sayings chaos --short --voice nola</div>
+
+      <p class="usage-desc">Want more? Just say:</p>
+      <div class="usage-example">hit me</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="closing-saying">&ldquo;Contributing here takes less effort than a manatee's morning commute.&rdquo;</p>
+      <p><a href="https://github.com/AlexU-A/wild-sayings">GitHub</a> &middot; MIT License &middot; Keep it PG-13, keep it funny, make sure the animals are having a good time.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
