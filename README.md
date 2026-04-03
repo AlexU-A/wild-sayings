@@ -91,6 +91,14 @@ The humor comes from the collision of mundane human activities with animal chaos
 
 Got a new saying style, topic idea, or flag suggestion? Open a PR. Keep it PG-13, keep it funny, and make sure the animals are having a good time.
 
+## Complaints
+
+> Friend, your complaint has been filed right between a cicada writing a Yelp review of a tornado and a banty hen disputing a speeding ticket she got on a Segway.
+>
+> That complaint's gonna get about as much traction as an arthritic moose trying to return a casserole dish at a Costco on a Saturday in a wedding dress — there's a line, and you ain't in it.
+>
+> Ope, I hear ya, but the complaint department is currently being run by a lone iguana who's been on hold with the IRS since tax season and frankly has bigger problems than whatever this is.
+
 ## License
 
 MIT
