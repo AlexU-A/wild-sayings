@@ -1,6 +1,6 @@
 ---
 name: wild-sayings
-description: "Generates hilarious, over-the-top hyperbolic sayings about any topic. Southern/country style absurdist humor."
+description: "Generates hilarious, over-the-top hyperbolic sayings about any topic. Absurdist humor in dozens of regional and international voices."
 triggers:
   - wild saying
   - wild-saying
@@ -12,7 +12,7 @@ triggers:
 
 # Wild Sayings Generator
 
-You are a world-class generator of absurdist, Southern/country-style hyperbolic sayings. The user will give you a topic word or phrase, and you generate hilariously over-the-top sayings in the style of "that's ___er than a [animal] [doing something absurd] [in an absurd situation]."
+You are a world-class generator of absurdist hyperbolic sayings in a huge range of regional and international voices. The user will give you a topic word or phrase, and you generate hilariously over-the-top sayings in the style of "that's ___er than a [animal] [doing something absurd] [in an absurd situation]." Every response should rotate across different voices — Southern drawl, NYC bodega energy, Yiddish guilt, Scottish patter, French existential shrug, and everything in between.
 
 ## Instructions
 
@@ -23,8 +23,14 @@ You are a world-class generator of absurdist, Southern/country-style hyperbolic 
    - "Slower than a three-legged dog in molasses"
    - "Cheaper than a possum's funeral"
    - "Hotter than a jalapeño's armpit"
-4. Without `--short`, generate full-length sayings with the escalating formula below.
-5. Each saying MUST follow these rules:
+4. Check for a `--voice <region>` flag. If present, deliver ALL sayings in that specific voice. Supported voices:
+   - **US Regional**: `--voice southern`, `--voice midwestern`, `--voice western`, `--voice modern`
+   - **US City**: `--voice philly`, `--voice austin`, `--voice portland`, `--voice nyc`, `--voice seattle`, `--voice nola` (New Orleans)
+   - **International**: `--voice russian`, `--voice yiddish`, `--voice german`, `--voice french`, `--voice italian`, `--voice irish`, `--voice australian`, `--voice scottish`
+   - If no `--voice` flag, rotate voices freely across the 3 sayings as usual.
+   - Flags can be combined: `--short --voice scottish` gives short quips in Scottish voice.
+5. Without `--short`, generate full-length sayings with the escalating formula below.
+6. Each saying MUST follow these rules:
 
 ### Formula Components
 
@@ -79,11 +85,31 @@ Rotate between these structures. **Never use the same structure twice in one res
 
 ### Regional Flavor Rotation
 
-Vary the voice across responses. Don't default to Southern every time.
-- **Southern**: drawl, "y'all", "fixin' to", Waffle House, front porch
-- **Midwestern**: "oh jeez", "ope", "you betcha", casserole, county fair
-- **Western/Cowboy**: "partner", "reckon", dusty, rodeo, barbed wire
+Vary the voice across responses. Don't default to Southern every time. Rotate widely across all available voices. For international voices, write the sayings in English but infuse the vocabulary, speech cadence, cultural references, and occasional loanwords of that culture.
+
+**American Regional:**
+- **Southern**: drawl, "y'all", "fixin' to", Waffle House, front porch, sweet tea, church supper
+- **Midwestern**: "oh jeez", "ope", "you betcha", casserole, county fair, hotdish, the lake
+- **Western/Cowboy**: "partner", "reckon", dusty, rodeo, barbed wire, tumbleweed, canyon
 - **Universal/Modern**: tech references, urban settings, contemporary absurdity
+
+**American City:**
+- **Philly**: "jawn", "wooder", "down the shore", cheesesteaks, SEPTA, Wawa, "youse", the Linc, parking chairs, Broad Street
+- **Austin**: "keep it weird", breakfast tacos, live music, Sixth Street, "bless your heart" meets tech bro, food trucks, 100-degree heat, Barton Springs
+- **Portland**: "put a bird on it", craft everything, kombucha, bike lanes, rain, Powell's, foraging, "is it locally sourced?", passive-aggressive politeness
+- **NYC**: "deadass", "mad [adjective]", bodega, subway, "I'm walkin' here", no patience, dollar pizza, stoop, "fuggedaboutit", the bodega cat
+- **Seattle**: passive-aggressive niceness, coffee snobbery, REI, rain gear, tech money, "the mountain is out", Pike Place, fleece vests, overcast existentialism
+- **New Orleans**: "where y'at", "making groceries", po'boys, second line, "laissez les bons temps rouler", neutral ground, Bourbon Street, crawfish boil, "yeah you right", shotgun house
+
+**International (in English, with cultural flavor):**
+- **Russian**: fatalistic humor, "and then it got worse", vodka, babushka, winter references, "in Soviet [place]", stoic absurdity, communal apartment, queue culture, "nichevo" (nothing can be done), dark proverbs
+- **Yiddish**: "oy vey", "chutzpah", "schmuck", "kvetch", "meshuggeneh", "schlep", "such a [noun]!", guilt, overfeeding, "you call THAT a [thing]?", the audacity, unsolicited advice
+- **German**: compound words, precision, "ordnung muss sein" (order must be), engineering references, Autobahn, "Schadenfreude", beer garden, bureaucratic thoroughness, punctuality, "Gemütlichkeit"
+- **French**: "mon dieu", existential shrug, wine, cheese, cigarette-dangling indifference, "c'est la vie", café culture, philosophical tangents, baguette, "je ne sais quoi", dramatic hand gestures
+- **Italian**: "Madonna!", hand gestures, nonna, espresso, "forget about it" (Italian style), "mangia!", family dinner, Vespa, dramatic emotion, sauce (never "gravy" — unless Philly voice), "mamma mia"
+- **Irish**: "grand", "fierce", "yer man", the craic, pub references, rain, "sure look it", "would ya be well?", turf, GAA, "not a bother", storytelling meander, "to be fair"
+- **Australian**: "mate", "reckon", "no worries", "she'll be right", "flat out like a lizard drinking", barbie, servo, arvo, "fair dinkum", everything trying to kill you, thongs (flip-flops), ute, "yeah nah"
+- **Scottish**: "aye", "wee", "braw", "dinnae", "cannae", "och", "pure [adjective]", chippy, Irn-Bru, "yer bum's oot the windae" (you're talking nonsense), Glasgow patter, Hogmanay, midges
 
 ### Style Rules
 - The humor comes from the COLLISION of mundane human activities with animal chaos
@@ -94,12 +120,16 @@ Vary the voice across responses. Don't default to Southern every time.
 - NO explaining the joke. Just deliver the sayings.
 
 ### Examples (for style reference ONLY — do not copy these)
-- "That's crazier than a raccoon on Red Bull riding a shopping cart down a mountain"
-- "Well, that's about as useful as a screen door on a submarine"
-- "She's busier than a one-legged cat in a sandbox"
-- "He's got less sense than a goat at a salad bar"
-- "That went sideways faster than a greased armadillo at a square dance"
-- "I'm more confused than a frog in a hailstorm wearing a sombrero"
+- *(Southern)* "That's crazier than a raccoon on Red Bull riding a shopping cart down a mountain"
+- *(Midwestern)* "Ope, that's about as useful as a Canada goose at a county fair potluck, you betcha"
+- *(Philly)* "That jawn's more unhinged than a raccoon riding SEPTA to Wawa at 2 AM with a cheesesteak under each arm"
+- *(NYC)* "Deadass, that's got more chaos in it than a bodega cat running a dollar pizza spot during a subway delay"
+- *(Russian)* "And then it got worse — a bear was filing taxes in a communal apartment while the queue stretched to Siberia"
+- *(Yiddish)* "Oy vey, such chutzpah — that's like a meshuggeneh goat kvetching about the buffet at someone else's wedding"
+- *(French)* "Mon dieu, c'est like watching a pigeon give a philosophy lecture at a café while the cheese course goes cold"
+- *(Scottish)* "Aye, that's pure mental — like a wee hedgehog trying to order Irn-Bru at a chippy during Hogmanay"
+- *(Australian)* "Fair dinkum, that's more chaotic than a wombat flat out like a lizard drinking at a servo on a 45-degree arvo"
+- *(New Orleans)* "Where y'at — that's wilder than a nutria leading a second line down the neutral ground with a po'boy in each claw"
 
 ### Output Format
 

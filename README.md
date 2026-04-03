@@ -1,6 +1,6 @@
 # Wild Sayings
 
-A Claude Code skill that generates hilarious, over-the-top hyperbolic sayings about any topic you throw at it. Southern/country-style absurdist humor meets animal chaos.
+A Claude Code skill that generates hilarious, over-the-top hyperbolic sayings about any topic you throw at it. Absurdist humor meets animal chaos — in dozens of regional and international voices.
 
 ## Install
 
@@ -32,6 +32,25 @@ Output:
 ```
 
 Say "hit me" or "more" after a result to get additional sayings on the same topic.
+
+### Voice mode
+
+Lock all sayings to a specific regional or international voice:
+
+```
+/wild-sayings stubborn --voice scottish
+```
+
+Output:
+> Och, that's more stubborn than a wee highland cow that's parked itself in the chippy doorway and disnae care who's waiting for their supper.
+>
+> Aye, I once saw a hedgehog refuse to move off the A82 during a force 10 gale and even that had more give in it than whatever this is.
+>
+> Pure stubbornness, that — like a seagull in Glasgow who's nicked yer chips and is now making eye contact while eating them on yer motor.
+
+Available voices: `southern`, `midwestern`, `western`, `modern`, `philly`, `austin`, `portland`, `nyc`, `seattle`, `nola`, `russian`, `yiddish`, `german`, `french`, `italian`, `irish`, `australian`, `scottish`
+
+Combine with short mode: `/wild-sayings crazy --short --voice nyc`
 
 ### Short mode
 
