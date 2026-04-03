@@ -50,19 +50,19 @@ Bumper-sticker-length quips when you don't need the full campfire story.
 
 ## Why does this exist?
 
-> This exists for the same reason a possum learns to play dead — sometimes the best survival strategy is making everyone around you laugh so hard they forget what they were mad about.
+> Well, last time someone asked why something like this existed, a capybara was moderating a philosophy subreddit during a dust storm — and even that made more sense than expecting a straight answer here.
 >
-> Asking why this exists is like asking why a bullfrog sits on a mailbox at dawn — nobody planned it, nobody asked for it, but now that it's here we all feel a little more alive.
+> Ope, you betcha this exists for the same reason a Canada goose walks into a county fair talent show — nobody invited it, nobody can stop it, and now everybody's watching.
 >
-> It exists because somebody gave an AI the personality of a gas station philosopher and a budget that would make a church mouse wince, and here we are.
+> That ain't a question with an answer, partner — that's a wombat writing a memoir in a gas station bathroom and somehow getting a book deal out of it.
 
 ## How useful is this?
 
-> About as useful as an armadillo with a clipboard doing a performance review at a Waffle House at 2 AM.
+> I once saw a river otter give a keynote presentation at a Rotary Club luncheon in house slippers, and even that accomplished more than this skill on paper.
 >
-> Well, it's got roughly the same practical value as a rooster in reading glasses proofreading a lease agreement during a thunderstorm.
+> On a scale of one to a flamingo assembling IKEA furniture during a power outage, this thing's usefulness lands somewhere around a dung beetle with a podcast — technically active, spiritually unclear.
 >
-> Look, if usefulness was a horse race, this skill would be the mule who wandered onto the track, ate the starting flag, and somehow placed third.
+> Oh jeez, it's about as useful as a nearsighted hawk refereeing a dodgeball game at a church basement potluck, you betcha — but everyone keeps showing up anyway.
 
 ## How it works
 
@@ -75,19 +75,19 @@ The humor comes from the collision of mundane human activities with animal chaos
 
 ## Who sponsored this work?
 
-> Well, "who pays" is about as clear as a catfish reading a restaurant check in the dark.
+> That's murkier than a nutria disputing a parking ticket at a DMV during a power outage — everybody's pointing fingers and the lights ain't even on.
 >
-> Somebody's footing this bill, and it ain't the possum — he just plays dead every time the invoice comes around.
+> Honey, figuring out who pays for this is like watching a pangolin plan a wedding on a Greyhound bus the morning after Thanksgiving — there's a lot of motion but no clear source of funds.
 >
-> The money's gotta come from somewhere, and right now it's looking more confused than a pelican at a vending machine trying to figure out which slot takes fish.
+> I reckon the money trail on this thing makes a cross-eyed owl doing its own taxes in a dust storm look like a CPA with a corner office.
 
 ## Contributing
 
-> PRs more welcome than a possum at a potluck.
+> Fork it like a heron forks a minnow — decisive and shameless.
 >
-> Fork it like a crawfish forks a biscuit.
+> PRs more welcome than a lemur at a Midwestern potluck.
 >
-> Contributing here's easier than teaching a goat to complain.
+> Contributing here takes less effort than a manatee's morning commute.
 
 Got a new saying style, topic idea, or flag suggestion? Open a PR. Keep it PG-13, keep it funny, and make sure the animals are having a good time.
 
