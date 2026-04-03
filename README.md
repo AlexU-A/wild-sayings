@@ -91,6 +91,14 @@ The humor comes from the collision of mundane human activities with animal chaos
 
 Got a new saying style, topic idea, or flag suggestion? Open a PR. Keep it PG-13, keep it funny, and make sure the animals are having a good time.
 
+## Is this compatible with IE 6?
+
+> Asking if this is compatible with IE 6 is like asking a copperhead to fax you a spreadsheet from a phone booth during a hailstorm — the infrastructure just ain't there, partner.
+>
+> I once saw a mudpuppy try to run a WebEx meeting on a dial-up modem inside a Cracker Barrel and even that had better browser support than what you're proposing.
+>
+> That ain't a compatibility question, that's a honey badger trying to install printer drivers on a TI-83 calculator with a cape on — at some point you gotta ask yourself what you're really doing here.
+
 ## Complaints
 
 > Friend, your complaint has been filed right between a cicada writing a Yelp review of a tornado and a banty hen disputing a speeding ticket she got on a Segway.
